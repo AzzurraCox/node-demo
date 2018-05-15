@@ -1,10 +1,12 @@
-const Xray = require('x-ray');
-x = Xray();
+const Express = require('express');
 
-x('https://kiki.ccu.edu.tw/~ccmisp06/Course/5304.html','table > tr',[
-    {
-        no:'td:nth-child(2) > font',
-        name:'td:nth-child(3) > font',
-        teacher:'td:nth-child(4) > font',
-    },
-]).write('./hello.json');
+const app = Express();
+
+app.get('/', function(req, res){
+    console.log('Hello');
+    res.send('Hello World');
+});
+
+app.listen(3000, function(){
+    console.log('start listen http://localhost:3000/')
+});
